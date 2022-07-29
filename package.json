@@ -1,0 +1,20 @@
+{
+  "name": "react-manage-system",
+  "version": "1.0.0",
+  "description": "react后台管理系统",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:website": "pnpm --filter \"@wrq/website\" start ",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "engines": {
+    "node": ">=10",
+    "pnpm": ">=3"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "wrq1663",
+  "license": "ISC"
+}
