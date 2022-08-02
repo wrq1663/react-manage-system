@@ -1,6 +1,11 @@
+import { useRoutes } from 'react-router-dom';
+import routes from './routes/index'
+
 const App = () => {
+  const Currelement = useRoutes(routes)
   return (
-    <div style={{background:'#000',width:'500px',height:'500px'}}>
+    <div>
+      {Currelement}
     </div>
   )
 }

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "ES2015",
+    "target": "es2016",
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "moduleResolution": "node",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+    },
+    "types": [
+      "node"
+    ]
+  }
+}

@@ -4,9 +4,9 @@
   "description": "react后台管理系统",
   "main": "index.js",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:website": "pnpm --filter \"@wrq/website\" start ",
-    "preinstall": "npx only-allow pnpm"
+    "dev:website": "pnpm --filter \"@wrq/website\" start "
   },
   "engines": {
     "node": ">=10",
