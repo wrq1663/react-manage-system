@@ -12,8 +12,8 @@ if (isMock) {
   requestlist.forEach((item: listItem) => {
     for (let key in item) {
       let tempArr = key.split(' ')
-      let method = tempArr[0]
-      let url = tempArr[1]
+      let method = tempArr[0] + ''
+      let url = tempArr[1] + ''
       let response = item[key]
       mock(url, method, response)
     }
