@@ -1,5 +1,5 @@
-import React, { Fragment, PropsWithChildren, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { Fragment, PropsWithChildren } from 'react'
+// import { useNavigate } from 'react-router-dom'
 
 const LoginCheck: React.FC<PropsWithChildren> = (props) => {
   // const a = true
