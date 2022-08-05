@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom'
 import './less/mainLayout.less';
 
 import { Layout, Menu } from 'antd';
+import LoginCheck from 'components/LoginCheck';
 
 
 const { Header, Sider, Content } = Layout
@@ -31,29 +32,30 @@ const items = [
 const MainLayout: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   return (
-    <Layout className='main-layout'>
-      {/* 用于占位 */}
-      <Sider className='sider-placeholder' collapsed={collapsed}></Sider>
-      <Sider className='main-sider' collapsible collapsed={collapsed} onCollapse={value => setCollapsed(value)} >
-        {/* logo */}
-        <div className="sider-title">
-          <div className="title-logo"></div>
-          {!collapsed && (
-            <span className='title'>Manage</span>
-          )}
-        </div>
-        <div className="menu-wrap">
-          <Menu theme='dark' mode='inline' items={items} />
-        </div>
-      </Sider>
-      <Layout>
-        <Header className='site-layout-background'>header</Header>
-        <Content>
-          <Outlet></Outlet>
-        </Content>
+    <LoginCheck>
+      <Layout className='main-layout'>
+        {/* 用于占位 */}
+        <Sider className='sider-placeholder' collapsed={collapsed}></Sider>
+        <Sider className='main-sider' collapsible collapsed={collapsed} onCollapse={value => setCollapsed(value)} >
+          {/* logo */}
+          <div className="sider-title">
+            <div className="title-logo"></div>
+            {!collapsed && (
+              <span className='title'>Manage</span>
+            )}
+          </div>
+          <div className={"menu-wrap " + (collapsed ? 'remove-auto' : '')}>
+            <Menu theme='dark' mode='inline' items={items} />
+          </div>
+        </Sider>
+        <Layout>
+          <Header className='site-layout-background'>header</Header>
+          <Content>
+            <Outlet></Outlet>
+          </Content>
+        </Layout>
       </Layout>
-    </Layout>
-
+    </LoginCheck>
   )
 }
 
