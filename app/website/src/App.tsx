@@ -4,7 +4,7 @@ import routes from './routes/index'
 const App = () => {
   const Currelement = useRoutes(routes)
   return (
-    <div>
+    <div style={{width:'100%',height:'100%'}}>
       {Currelement}
     </div>
   )
