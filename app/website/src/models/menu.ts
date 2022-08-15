@@ -44,7 +44,7 @@ export type MenuModelState = {
 };
 
 const MenuModel: ModelType<MenuModelState> = {
-  namespace: 'user',
+  namespace: 'menu',
   state: {
     menuTree: [],
     activeMenu: {

@@ -8,6 +8,7 @@ import MenuModel from 'models/menu'
 const { reducer, rootSaga } = createStore(MenuModel)
 const sagaMiddleware = createSagaMiddleware()
 
+
 export default configureStore({
   reducer,
   middleware: [sagaMiddleware]
