@@ -7,4 +7,16 @@ export default [
       return { ...user }
     }
   },
+  {
+    "post /api/login": (requst?:any) => {
+      let loginForm = JSON.parse(requst.body)
+      if(loginForm.username === 'admin' && loginForm.password === 'admin'){
+        return 'admin'
+      }
+      if(loginForm.username === 'wrq' && loginForm.password === 'wrq'){
+        return 'wrq'
+      }
+      return { ...user }
+    }
+  },
 ]

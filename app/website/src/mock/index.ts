@@ -4,7 +4,7 @@ import requestlist from "./requestlist"
 const isMock = process.env.REACT_APP_MOCK
 
 type listItem = {
-  [key: string]: (req: any) => any
+  [key: string]: any
 }
 
 

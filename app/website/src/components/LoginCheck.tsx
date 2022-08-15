@@ -1,4 +1,5 @@
 import React, { Fragment, PropsWithChildren } from 'react'
+import { login } from 'service/user'
 // import { useNavigate } from 'react-router-dom'
 
 const LoginCheck: React.FC<PropsWithChildren> = (props) => {
@@ -7,6 +8,14 @@ const LoginCheck: React.FC<PropsWithChildren> = (props) => {
   // useEffect(() => {
   //   if (!a) navigate('/login')
   // })
+
+  login({
+    username:'wrq',
+    password:'wrq'
+  }).then(res=>{
+    console.log(res);
+    
+  })
 
   return (
     <Fragment>
