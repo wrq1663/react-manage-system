@@ -1,17 +1,20 @@
 
 import type { MenuProps } from 'antd';
-import {  ModelType } from 'typing/model';
+import { getMenuByToken } from 'service/menu';
+import { ModelType } from 'typing/model';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
 type MenuInfo = MenuItem & {
   id?: number;
-  pages?: number[];
   isAuth?: boolean;
   isBuilding?: boolean;
   children?: MenuInfo[];
   url?: string;
-  tabName?: string;
+  isAuthReadable?: boolean;
+  leaf?: boolean;
+  route?: string;
+  isExternalLink?: boolean
 }
 
 /** Tab数据 */
@@ -43,6 +46,28 @@ export type MenuModelState = {
   tabHistory: string[]
 };
 
+/**
+ * 初始化菜单树
+ * @param menuTree  菜单树
+ * @returns 
+ */
+const initMenuTree = (menuTree: MenuInfo[]): MenuInfo[] => {
+  console.log(menuTree)
+  let newMenuTree = menuTree.map(item => {
+    //存在子菜单时深度遍历
+    if (item.children?.length) {
+      initMenuTree(item.children)
+    }
+    //判断是否是外部链接
+    let isExternalLink = false
+    if (item.url) isExternalLink = true
+    return Object.assign(item, {
+      isExternalLink
+    })
+  })
+  return newMenuTree
+}
+
 const MenuModel: ModelType<MenuModelState> = {
   namespace: 'menu',
   state: {
@@ -59,11 +84,17 @@ const MenuModel: ModelType<MenuModelState> = {
     changeName(state, action) {
       state.menuTree = action.payload
     },
+    setMenuTree(state, action) {
+      state.menuTree = initMenuTree(action.payload.data)
+    }
   },
   effects: {
-    *getName() {
-      yield console.log('wrq')
+    *fetchMenuTree(saga) {
+      const { data } = yield getMenuByToken()
+      yield saga?.put({ type: 'menu/setMenuTree', payload: { data } })
     }
   }
 }
 export default MenuModel
+
+export const selectMenuList = (state: any) => state.menu.menuTree

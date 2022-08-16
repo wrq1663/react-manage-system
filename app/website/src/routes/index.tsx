@@ -1,6 +1,11 @@
 import MainLayout from "../layout/mainLayout";
 import Login from "../page/login";
 import Test from "../page/test/index"
+// import { lazy } from "react";
+
+// const Login = lazy(() => import('../page/login'))
+// const Test = lazy(() => import('../page/test/index'))
+// const MainLayout = lazy(() => import('../layout/mainLayout'))
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default [
@@ -15,7 +20,7 @@ export default [
   {
     path: '/login',
     element: <Login />,
-    caseSensitive:true
+    caseSensitive: true
   },
   {
     path: '/index',

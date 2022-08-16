@@ -1,14 +1,24 @@
-import './less/index.less'
+
+import { login } from 'service/user';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { Form, Input, Button } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
-
-const onFinish = (val: any) => {
-  console.log(val)
-}
+import './less/index.less'
 
 const Login = () => {
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const onFinish = (val: any) => {
+    login(val).then((res) => {
+      dispatch({ type: 'user/changeToken',payload:{token:res.data.token} })
+      navigate('/index')
+    })
+  }
   return (
     <div className="login-page">
       <div className="login-wrap">

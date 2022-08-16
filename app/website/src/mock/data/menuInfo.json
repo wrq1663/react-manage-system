@@ -1,0 +1,50 @@
+{
+  "code": 200,
+  "msg": "mock模拟数据",
+  "data":[
+    {
+      "id":"0",
+      "title":"表单组件",
+      "key": "key0",
+      "url": null,
+      "leaf": false,
+      "isAuth": true,
+      "isAuthReadable": false,
+      "route":"",  
+      "children":[
+        {
+          "id":"0-1",
+          "title":"表单展示",
+          "key": "key0-1",
+          "url": null,
+          "route":"/form",
+          "leaf": true,
+          "isAuth": true,
+          "isAuthReadable": false
+        }
+      ]
+    },
+    {
+      "id":"1",
+      "title":"按钮组件",
+      "key": "key1",
+      "url": null,
+      "leaf": false,
+      "isAuth": true,
+      "isAuthReadable": false,  
+      "route":"",  
+      "children":[
+        {
+          "id":"1-1",
+          "title":"设置按钮",
+          "key": "key1-1",
+          "url": null,
+          "route":"/button",
+          "leaf": true,
+          "isAuth": true,
+          "isAuthReadable": false
+        }
+      ]
+    }
+  ]
+}

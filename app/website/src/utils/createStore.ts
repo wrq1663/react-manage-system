@@ -35,7 +35,7 @@ const createSagaMiddle = (modelList: ModelType<unknown>[]) => {
       watchList.push((function* () {
         yield takeEvery(type, function* (action) {
           //调用对应的方法，并传入action和saga
-          yield saga.call(effects[key], action, saga)
+          yield saga.call(effects[key],saga, action)
         })
       })())
     }

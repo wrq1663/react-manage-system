@@ -11,8 +11,6 @@ import store from 'store';
 import './mock/index'
 
 
-// import request from '@wrq/apis';
-
 const root = ReactDOM.createRoot(document.getElementById('root') as Element);
 
 root.render(

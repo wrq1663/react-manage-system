@@ -3,6 +3,11 @@ import { Action, AnyAction } from "@reduxjs/toolkit";
 /**
  * reducer类型
  */
+
+// declare type StateType<T> = {
+//   [key:string] :T
+// }
+
 declare type Reducer<S = any, A extends Action = AnyAction> = (
   state: S,
   action: A,
@@ -22,8 +27,8 @@ interface EffectsCommandMap {
  * effect类型
  */
 declare type Effect = (
-  action?: AnyAction,
   effects?: EffectsCommandMap,
+  action?: AnyAction,
 ) => void;
 
 /**
