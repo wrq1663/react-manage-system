@@ -1,6 +1,9 @@
 import MainLayout from "../layout/mainLayout";
 import Login from "../page/login";
-import Test from "../page/test/index"
+import Home from "../page/home"
+import MenuManage from "page/system/menu";
+import UserManage from "page/system/user";
+import RoleManage from "page/system/role";
 // import { lazy } from "react";
 
 // const Login = lazy(() => import('../page/login'))
@@ -12,24 +15,33 @@ export default [
   {
     path: '/',
     element: <MainLayout />,
-    children: [{
-      index: true,
-      element: <Test />
-    }]
+  },
+  {
+    path:'/home',
+    element: <Home />
   },
   {
     path: '/login',
     element: <Login />,
     caseSensitive: true
   },
+  //公共管理
   {
-    path: '/index',
-    element: <MainLayout />,
+    path: '/system',
+    // element: <MainLayout />,
     children: [
       {
-        path: "/index/home",
-        element: <Test />,
+        path: "/system/user",
+        element: <UserManage />,
+      },
+      {
+        path: "/system/role",
+        element: <RoleManage />,
+      },
+      {
+        path: "/system/menu",
+        element: <MenuManage />,
       }
     ]
-  }
+  },
 ]

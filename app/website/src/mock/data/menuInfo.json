@@ -1,48 +1,83 @@
 {
   "code": 200,
   "msg": "mock模拟数据",
-  "data":[
+  "data": [
     {
-      "id":"0",
-      "title":"表单组件",
+      "id": "-1",
+      "title": "首页",
+      "key": "key-1",
+      "url": null,
+      "leaf": 1,
+      "isauth": 1,
+      "isauthreadable": 0,
+      "route": "/home",
+      "isbuilding": 0
+    },
+    {
+      "id": "0",
+      "title": "公共管理",
       "key": "key0",
       "url": null,
-      "leaf": false,
-      "isAuth": true,
-      "isAuthReadable": false,
-      "route":"",  
-      "children":[
+      "leaf": 0,
+      "isauth": 1,
+      "isauthreadable": 0,
+      "route": "",
+      "children": [
         {
-          "id":"0-1",
-          "title":"表单展示",
+          "id": "0-1",
+          "title": "用户管理",
           "key": "key0-1",
           "url": null,
-          "route":"/form",
-          "leaf": true,
-          "isAuth": true,
-          "isAuthReadable": false
+          "route": "/system/user",
+          "leaf": 1,
+          "isauth": 1,
+          "isauthreadable": 0,
+          "isbuilding": 0
+        },
+        {
+          "id": "0-2",
+          "title": "角色管理",
+          "key": "key0-2",
+          "url": null,
+          "route": "/system/role",
+          "leaf": 1,
+          "isauth": 1,
+          "isauthreadable": 0,
+          "isbuilding": 0
+        },
+        {
+          "id": "0-3",
+          "title": "菜单管理",
+          "key": "key0-3",
+          "url": null,
+          "route": "/system/menu",
+          "leaf": 1,
+          "isauth": 1,
+          "isauthreadable": 0,
+          "isbuilding": 0
         }
       ]
     },
     {
-      "id":"1",
-      "title":"按钮组件",
+      "id": "1",
+      "title": "按钮组件",
       "key": "key1",
       "url": null,
-      "leaf": false,
-      "isAuth": true,
-      "isAuthReadable": false,  
-      "route":"",  
-      "children":[
+      "leaf": 0,
+      "isauth": 1,
+      "isauthreadable": 0,
+      "route": "",
+      "children": [
         {
-          "id":"1-1",
-          "title":"设置按钮",
+          "id": "1-1",
+          "title": "设置按钮",
           "key": "key1-1",
           "url": null,
-          "route":"/button",
-          "leaf": true,
-          "isAuth": true,
-          "isAuthReadable": false
+          "route": "/button",
+          "leaf": 1,
+          "isauth": 1,
+          "isauthreadable": 0,
+          "isbuilding": 0
         }
       ]
     }

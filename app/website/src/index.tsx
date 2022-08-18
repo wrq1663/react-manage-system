@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
 
 import 'antd/dist/antd.min.css';
+import './assets/global.less'
 
 import App from './App';
 import store from 'store';

@@ -22,8 +22,7 @@ const LoginCheck: React.FC<PropsWithChildren> = (props) => {
   useEffect(() => {
     //初始化菜单
     if (!menuList.length) dispatch({ type: 'menu/fetchMenuTree' })
-    console.log("🚀 ~ file: LoginCheck.tsx ~ line 25 ~ useEffect ~ menuList", menuList)
-  }, [menuList, dispatch])
+  }, [dispatch, menuList.length])
 
   return (
     <Fragment>

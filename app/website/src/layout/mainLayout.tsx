@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom'
-
-import './less/mainLayout.less';
+import { useSelector } from 'react-redux';
+import { selectMenuList } from 'models/menu';
+// import { Outlet } from 'react-router-dom'
 
 import { Layout } from 'antd';
+
 import LoginCheck from 'components/LoginCheck';
 import MenuPro from 'components/MenuPro';
+import IndexContent from 'components/IndexContent';
 
+import './less/mainLayout.less';
+import MainHeader from 'components/MainHeader';
 
-const { Header, Sider, Content } = Layout
+const { Sider, Content } = Layout
 
 const MainLayout: React.FC = () => {
-  
+
   const [collapsed, setCollapsed] = useState(false);
+  const { menuTree, tabs, selectedKeys } = useSelector(selectMenuList)
 
   return (
     <LoginCheck>
@@ -27,12 +32,12 @@ const MainLayout: React.FC = () => {
               <span className='title'>Manage</span>
             )}
           </div>
-          <MenuPro collapsed={collapsed} />
+          <MenuPro selectedKeys={selectedKeys} menuTree={menuTree} collapsed={collapsed} />
         </Sider>
         <Layout>
-          <Header className='site-layout-background'>header</Header>
+          <MainHeader></MainHeader>
           <Content>
-            <Outlet></Outlet>
+            <IndexContent tabs={tabs} selectedKeys={selectedKeys} />
           </Content>
         </Layout>
       </Layout>

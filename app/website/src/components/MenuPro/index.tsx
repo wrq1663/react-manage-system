@@ -1,27 +1,53 @@
 import React, { memo } from 'react'
 
 import { Menu } from 'antd'
+import type { MenuInfo } from 'models/menu';
+
+import './style.less'
+import { useDispatch } from 'react-redux';
+// import { NavLink } from 'react-router-dom';
 
 type Props = {
-  collapsed:boolean
+  collapsed: boolean,
+  menuTree: MenuInfo[],
+  selectedKeys:string[]
 }
 
-const items = [
-  { label: '菜单项一', key: 'item-1' }, // 菜单项务必填写 key
-  { label: '菜单项二', key: 'item-2' },
-  {
-    label: '子菜单',
-    key: 'submenu',
-    children: [{ label: '子菜单项', key: 'submenu-item-1' }],
-  },
-];
+const MenuPro: React.FC<Props> = (props) => {
 
-const MenuPro:React.FC<Props> = (props) => {
-  const {collapsed} = props
+
+  const { collapsed, menuTree,selectedKeys } = props
+  const dispatch = useDispatch()
+
+  const menuItemCreate = (menuTree: MenuInfo[]) => {
+    return menuTree.map(item => {
+      let children: MenuInfo[] = []
+      if (item.children?.length) {
+        children = menuItemCreate(item.children)
+      }
+      let label = item.route ? (<div className='menuItem' onClick={onOpenPage(item)}>{item.title}</div>) : (<div> {item.title}</div>);
+      return Object.assign({}, item, { label: label }, children.length && { children })
+    })
+  }
+
+  const onOpenPage = (item: MenuInfo) => (e: React.SyntheticEvent) => {
+    e.preventDefault()
+    console.log(item)
+    dispatch({ type: 'menu/setCurrentItem', payload: {currentItem:item} })
+  }
+
+  const menuList = menuItemCreate(menuTree)
+
+  console.log(menuList)
+
   return (
     <div className={"menu-wrap " + (collapsed ? 'remove-auto' : '')}>
-    <Menu theme='dark' mode='inline' items={items} />
-  </div>
+      <Menu 
+      selectedKeys={selectedKeys} 
+      theme='dark'
+       mode='inline' 
+      items={menuList} />
+    </div>
   )
 }
 
